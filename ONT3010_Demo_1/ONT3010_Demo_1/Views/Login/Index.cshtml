@@ -1,0 +1,46 @@
+﻿@model ONT3010_Demo_1.Models.LoginCheck
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]Login</title>
+    <link href="~/css/LoginStyle.css" rel="stylesheet" />
+</head>
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 style="color:yellow">Login</h3>
+            </div>
+            <div class="card-body">
+                <form class="form-horizontal" asp-action="Index">
+                    <div class="form-group">
+                        <Label style="color: azure">Email</Label>
+                        <input asp-for=Email class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <Label style="color: azure">Password</Label>
+                        <input asp-for=Password class="form-control" type="password" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn float-right login_btn">
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-center links">
+                    Don't have an account?<a href="#">Sign Up</a>
+                </div>
+@*                 <div class="d-flex justify-content-center">
+                    <a href="#">Forgot your password?</a>
+                </div> *@
+            </div>
+        </div>
+    </div>
+</div>
+@{
+    if (TempData["msg"] != null)
+    {
+        <script>alert('@TempData["msg"]')</script>
+    }
+}
